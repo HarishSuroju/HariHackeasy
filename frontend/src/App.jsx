@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 const emptyVenue = { name: '', type: 'Venue', location: '', status: 'Normal Traffic', capacity: '0%', icon: 'fa-location-dot', lat: '12.9719', lng: '77.5948', accessibleRoute: true, wheelchairAccess: false, elevator: false, quietSpace: false, accessibleRestroom: false };
 const emptySession = { title: '', time: '', location: '', category: 'AI', speaker: '' };
 const interestOptions = ['AI', 'Web', 'Cloud', 'Design', 'Business'];

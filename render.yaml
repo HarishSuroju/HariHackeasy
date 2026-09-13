@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: nexusevent-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: ORGANIZER_CODE
+        sync: false
+
+  - type: web
+    name: nexusevent-web
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://nexusevent-api.onrender.com/api
